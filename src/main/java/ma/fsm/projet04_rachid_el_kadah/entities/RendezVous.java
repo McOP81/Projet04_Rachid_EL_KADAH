@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Generated;
 import lombok.NoArgsConstructor;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.util.Collection;
 
 
@@ -16,12 +18,13 @@ public class RendezVous {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date date;
+    @Enumerated(EnumType.STRING)
     private StatusRDV status;
     @ManyToOne
     private Patient patient;
     @ManyToOne
     private Medecin medecin;
-    @OneToOne
+    @OneToOne(mappedBy = "rendezVous")
     private Consultation consultation;
 
 }

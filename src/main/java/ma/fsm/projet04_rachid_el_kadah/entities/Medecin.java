@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Generated;
 import lombok.NoArgsConstructor;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.util.Collection;
 
 
@@ -15,7 +17,8 @@ import java.util.Collection;
 public class Medecin {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date date;
+    private String nom;
+    private String email;
     private String specialite;
     @OneToMany(mappedBy = "medecin", fetch = FetchType.LAZY)
     private Collection<RendezVous> rendezVous;
