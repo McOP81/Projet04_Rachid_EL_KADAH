@@ -1,5 +1,6 @@
 package ma.fsm.projet04_rachid_el_kadah.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,5 +24,6 @@ public class Consultation {
     private Date dateConsultaion;
     private String rapport;
     @OneToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private RendezVous rendezVous;
 }

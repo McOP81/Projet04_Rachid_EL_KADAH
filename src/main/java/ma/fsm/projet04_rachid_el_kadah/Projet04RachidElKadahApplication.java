@@ -51,10 +51,10 @@ public class Projet04RachidElKadahApplication  {
 		rendezVous.setStatus(StatusRDV.PENDING);
 		rendezVous.setMedecin(medecin);
 		rendezVous.setPatient(patient);
-		RendezVous saveDRDV = rendezVousRepository.save(rendezVous);
+		RendezVous saveDRDV = hospitalService.saveRDV(rendezVous);
 		System.out.println(saveDRDV.getId());
 
-			RendezVous rendezVous1 = rendezVousRepository.findById(1L).orElse(null);
+			RendezVous rendezVous1 = rendezVousRepository.findAll().get(0);
 
 		Consultation consultation = new Consultation();
 		consultation.setDateConsultaion(new Date());
